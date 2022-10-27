@@ -1,0 +1,29 @@
+from PyQt5.QtCore import Qt    
+from random import *
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton,QVBoxLayout
+app = QApplication([])
+
+my_win = QWidget()
+my_win.setWindowTitle('Dragon')
+my_win.resize(800,600)
+my_win.show()
+
+lbl1 = QLabel("рандом Dragon")
+lbl2 = QLabel("Dragon")
+btn = QPushButton("генерация ")
+
+it = QVBoxLayout()
+
+it.addWidget(lbl1)
+it.addWidget(lbl2)
+it.addWidget(btn)
+
+my_win.setLayout(it)
+
+def rand():
+    ran = randint(0,100)
+    lbl2.setText(str(ran))   
+
+btn.clicked.connect(rand)
+
+app.exec_()
